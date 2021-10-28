@@ -1,0 +1,11 @@
+#directiories#
+/build/
+target/
+#files#
+*.class
+*.jar
+*.war
+/.idea
+*.iml
+/target
+*/.idea/*
