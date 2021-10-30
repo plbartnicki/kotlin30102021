@@ -66,8 +66,11 @@ fun main() {
     //HashSet bazuje na hashowaniu: f: W -> N   f(x) = x mod 100   x nalezy do N  f(x) nalezy do <0 , 99 >
     //HashSet nie gwarantuje ze kolejnosc dodawania obiektow bedzie taka sama jak kolejnosc w wyniku iteracji
     val hasShet = HashSet<Int>()
-    hasShet.add(1)
-
+    hasShet.add(1)  //szybkie (w czasie O(1) - stalym) dodawanie elementu
+    hasShet.add(1)    //
+    println(hasShet.size)
+    hasShet.contains(1)   //szybkie (w czasie O(1) - stalym) sprawdzanie czy  element istnieje
+    //{a,b,c} = {c, b, a}    {a,b,b} - to nie jest zbior
     //gdybysmy chcieli zrobic HashSet z obiektami naszej-customowej klasy, to trzeba sie upewnic ze w tej klasie jest
     //odpowiednia implementacja hashCode oraz equals - ktora dodajemy poprzez alt+ins (zostanie wygenerowana automatycznie)
 
