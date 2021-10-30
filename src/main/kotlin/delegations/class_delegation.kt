@@ -1,7 +1,9 @@
 package delegations
 
+import java.lang.IllegalArgumentException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.streams.toList
 
 interface DateTimeGenerator {
@@ -36,6 +38,14 @@ class BasicDateTimeGenerator(dateTimeGenerator: DateTimeGenerator): DateTimeGene
     }
 }
 
+fun div( a: Double,  b: Double) : Double {
+    if(b.equals(0.0)) {
+        throw IllegalArgumentException("b should not be equals 0")
+    }
+
+    return a /b;
+}
+
 fun main() {
     val standardDateTimeGenerator = StandardDateTimeGenerator("Current time: ")
     println(standardDateTimeGenerator.generateDate())
@@ -59,7 +69,7 @@ fun main() {
     hasShet.add(1)
 
     //gdybysmy chcieli zrobic HashSet z obiektami naszej-customowej klasy, to trzeba sie upewnic ze w tej klasie jest
-    //odpowiednia implementacja hashCode oraz equals
+    //odpowiednia implementacja hashCode oraz equals - ktora dodajemy poprzez alt+ins (zostanie wygenerowana automatycznie)
 
     val set2 = setOf(1,2,3) - setOf(2)
     print(set2)
@@ -70,4 +80,23 @@ fun main() {
         linkedHashSet.add(i)
 
     linkedHashSet.forEach{print("${it} ")}
+
+    val map1 = HashMap<String, Int>()
+    map1.put("one", 1)
+    map1.put("two", 2)
+    map1.contains("one")
+    println()
+    println("one".hashCode())
+    println("two".hashCode())
+    /*       numer komorki   wartosci
+               ..
+               110182             [1,14]
+               115276             [2,..]
+     */
+
+    val map2 = mapOf("dog" to "pies", "cat" to "kot")
+    println(map2)
+
+    //losowanie
+    println((1..100).random())
 }
